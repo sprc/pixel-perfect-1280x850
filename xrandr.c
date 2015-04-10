@@ -1253,7 +1253,7 @@ set_output_info (output_t *output, RROutput xid, XRROutputInfo *output_info)
 	    output->transform.transform.matrix[0][0] = XDoubleToFixed (sx);
 	    output->transform.transform.matrix[1][1] = XDoubleToFixed (sy);
 	    output->transform.transform.matrix[2][2] = XDoubleToFixed (1.0);
-	    if (sx != 1 || sy != 1)
+	    if ((sx != 1 || sy != 1) && (sx != 0.5 || sy != 0.5))
 		output->transform.filter = "bilinear";
 	    else
 		output->transform.filter = "nearest";
@@ -2816,7 +2816,7 @@ main (int argc, char **argv)
 	    config_output->transform.transform.matrix[0][0] = XDoubleToFixed (sx);
 	    config_output->transform.transform.matrix[1][1] = XDoubleToFixed (sy);
 	    config_output->transform.transform.matrix[2][2] = XDoubleToFixed (1.0);
-	    if (sx != 1 || sy != 1)
+	    if ((sx != 1 || sy != 1) && (sx != 0.5 || sy != 0.5))
 		config_output->transform.filter = "bilinear";
 	    else
 		config_output->transform.filter = "nearest";
